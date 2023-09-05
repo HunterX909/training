@@ -30,8 +30,10 @@ public class AlbumDaoImpl implements AlbumDao {
 	}
 
 	@Override
-	public Album findByTitle(String title) {
-		return albums.stream().filter(l -> l.getTitle().equals(title)).findFirst().get();
+	public Album findByTitle(String title) throws InvalidAlbumException {
+		
+		return albums.stream().filter(l -> l.getTitle().equals(title)).findFirst()
+				.orElseThrow(() -> new InvalidAlbumException("Album not found: " + title));
 	}
 
 	@Override
