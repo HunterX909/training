@@ -11,8 +11,7 @@ public class AlbumDaoImpl implements AlbumDao {
 	List<Album> albums ;
 	
 	public AlbumDaoImpl() {
-		albums = new ArrayList<Album>();
-		
+		albums = new ArrayList<Album>();	
 		try (Stream<String> lines = Files.lines(Paths.get("src/albums.txt"))){
 			albums =lines.map(line ->{
 				String[] record =line.split(",");
@@ -23,7 +22,6 @@ public class AlbumDaoImpl implements AlbumDao {
 		}	
 	}
 	
-
 	@Override
 	public void persist(Album a) {
 		albums.add(a);
@@ -67,5 +65,4 @@ public class AlbumDaoImpl implements AlbumDao {
 	public boolean delete(String title) {
 		return albums.removeIf(p -> p.getTitle().equals(title));
 	}
-
 }
