@@ -21,20 +21,20 @@ public class TestTeamPlayerDao {
 	}
 
 	@Test
+	public void testSaveTeam() {
+		Team team = new Team();
+		team.setTeamName("Chicago Bulls");
+		team.setTeamId(230);
+		dao.addTeam(team);
+	}
+	
+	@Test
 	public void testSavePlayer() {
 		Player p = new Player();
 		p.setPlayerName("Astro");
 		p.setExpertise("Attacker");
 		p.setJerseyNo(45);
 		dao.addPlayer(p, 230);
-	}
-
-	@Test
-	public void testSaveTeam() {
-		Team team = new Team();
-		team.setTeamName("Chicago Bulls");
-		team.setTeamId(230);
-		dao.addTeam(team);
 	}
 
 	@Test
