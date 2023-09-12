@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "books")
 @NamedQueries(
-		@NamedQuery(name ="byauthor", query = "FROM Book WHERE author=:auth")
+		@NamedQuery(name ="byauthor", query = "SELECT b FROM Book b WHERE b.author = :auth")
 )
 
 public class Book {
